@@ -1,0 +1,34 @@
+generated: '2026-07-21'
+method: searched
+source: https://login.urbanfootprint.com/.well-known/openid-configuration
+notes: UrbanFootprint publishes no public developer API or API-key program. The
+  platform (app.urbanfootprint.com) authenticates users through an Auth0 custom
+  domain (login.urbanfootprint.com, tenant urbanfootprint) and the SPA calls the
+  platform API at app-api.urbanfootprint.com with session credentials.
+  This profile describes that live platform auth surface, not a public API contract.
+summary:
+  types: [openIdConnect, oauth2]
+  oauth2_flows: [authorizationCode, clientCredentials, refreshToken, deviceCode,
+    implicit, password, tokenExchange]
+  pkce: [S256, plain]
+  dpop_signing_algs: [ES256]
+schemes:
+- name: auth0-oidc
+  type: openIdConnect
+  openIdConnectUrl: https://login.urbanfootprint.com/.well-known/openid-configuration
+  issuer: https://login.urbanfootprint.com/
+  authorizationUrl: https://login.urbanfootprint.com/authorize
+  tokenUrl: https://login.urbanfootprint.com/oauth/token
+  deviceAuthorizationUrl: https://login.urbanfootprint.com/oauth/device/code
+  jwksUri: https://login.urbanfootprint.com/.well-known/jwks.json
+  scopes_supported: [openid, profile, offline_access, name, given_name,
+    family_name, nickname, email, email_verified, picture, created_at,
+    identities, phone, address]
+  id_token_signing_algs: [HS256, RS256, PS256]
+  provider: Auth0 (custom domain)
+- name: platform-session
+  type: http
+  description: The platform API (https://app-api.urbanfootprint.com) requires an
+    authenticated session; unauthenticated requests receive an RFC 9457 401
+    problem ("User must be logged in to perform this action") with
+    access-control-allow-origin locked to https://app.urbanfootprint.com.

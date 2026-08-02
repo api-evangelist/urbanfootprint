@@ -1,0 +1,18 @@
+generated: '2026-07-21'
+method: searched
+source: live probe of https://app-api.urbanfootprint.com (no public OpenAPI exists)
+format: rfc9457
+notes: UrbanFootprint's platform API (app-api.urbanfootprint.com, undocumented
+  publicly, consumed by app.urbanfootprint.com) emits RFC 9457 Problem Details.
+  One problem type was observed unauthenticated; the rest of the error surface is
+  behind login.
+envelope:
+  content_type: application/problem+json
+  members: [type, title, status, detail]
+problems:
+- status: 401
+  type: about:blank
+  title: Unauthorized
+  detail: User must be logged in to perform this action.
+  source: GET https://app-api.urbanfootprint.com/api/internal/ping (observed
+    2026-07-21)

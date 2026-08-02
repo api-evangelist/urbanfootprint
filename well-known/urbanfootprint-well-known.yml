@@ -1,0 +1,30 @@
+generated: '2026-07-21'
+method: searched
+source: live probes of urbanfootprint.com, app.urbanfootprint.com, login.urbanfootprint.com
+hosts:
+- host: https://urbanfootprint.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/openid-configuration
+    status: 404
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+  - path: /.well-known/api-catalog
+    status: 404
+  - path: /.well-known/ai-plugin.json
+    status: 404
+  - path: /llms.txt
+    status: 404
+- host: https://app.urbanfootprint.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 200
+    note: SPA catch-all — returns the application HTML shell (redux-first-router
+      NOT_FOUND route), not a valid RFC 9116 security.txt. Not saved.
+- host: https://login.urbanfootprint.com
+  note: Auth0 custom domain (tenant urbanfootprint) used by app.urbanfootprint.com.
+  documents:
+  - path: /.well-known/openid-configuration
+    status: 200
+    file: urbanfootprint-openid-configuration.json

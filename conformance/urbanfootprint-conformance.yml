@@ -1,0 +1,29 @@
+generated: '2026-07-21'
+method: searched
+source: live probes of login.urbanfootprint.com and app-api.urbanfootprint.com
+notes: UrbanFootprint publishes no public developer API; these assertions describe
+  the platform's live authentication and API-error surfaces as observed from the
+  outside. No published compliance/certification program was found (trust-center
+  and vulnerability-disclosure probes returned none).
+standards:
+- id: oidc
+  conforms: true
+  evidence: https://login.urbanfootprint.com/.well-known/openid-configuration returns
+    a full OpenID Connect discovery document (Auth0 custom domain, issuer
+    https://login.urbanfootprint.com/) — saved at
+    well-known/urbanfootprint-openid-configuration.json
+- id: oauth2
+  conforms: true
+  evidence: Auth0 token endpoint https://login.urbanfootprint.com/oauth/token with
+    grant_types_supported including authorization_code, client_credentials,
+    refresh_token, device_code, and token-exchange; PKCE (S256) supported
+- id: rfc9457-problem-details
+  conforms: true
+  evidence: https://app-api.urbanfootprint.com/api/internal/ping responds
+    content-type application/problem+json with {type, title, status, detail}
+    members (observed 401 Unauthorized, type about:blank)
+- id: rfc6750-bearer
+  conforms: true
+  evidence: OIDC discovery advertises token_endpoint_auth_methods and JWT signing
+    (RS256/PS256); platform SPA authenticates against Auth0 and calls
+    app-api.urbanfootprint.com with credentials

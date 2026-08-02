@@ -1,21 +1,51 @@
 aid: urbanfootprint
 name: UrbanFootprint
-description: 'UrbanFootprint is a company surfaced as a portfolio company of social-capital and added
-  to the API Evangelist network as a stub for enrichment. Sector: climate. This profile is a lead awaiting
-  the enrichment pipeline.'
+description: 'UrbanFootprint is a resilient decision intelligence platform that
+  delivers urban, climate, and community-resilience data and analytics, helping
+  governments, utilities, financial institutions, and planners assess risk and
+  make data-driven decisions. Its platform spans scenario analysis (Analyst),
+  map-based data exploration (Explorer), and curated data subscriptions covering
+  climate hazards, the built environment, and social vulnerability. UrbanFootprint
+  is a closed SaaS platform sold via sales contact and publishes no public
+  developer API; its application authenticates through Auth0 and consumes an
+  internal platform API.'
 url: https://raw.githubusercontent.com/api-evangelist/urbanfootprint/refs/heads/main/apis.yml
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: medium
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://urbanfootprint.com/wp-content/uploads/2026/04/icon-512.png
 x-type: company
 x-source: vc-portfolio
 x-backed-by:
 - social-capital
 x-tier: stub
-x-tier-reason: portfolio-lead
+x-tier-reason: portfolio-lead-no-public-api
+x-enrichment:
+  date: '2026-07-21'
+  status: enriched
+  artifacts_added: 7
+  pass: local-v1
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-21'
 tags:
 - Company
 - Climate
+- Geospatial
+- Urban Planning
+- Data
+- Analytics
+- Resilience
+- Mapping
 apis: []
 maintainers:
 - FN: Kin Lane
@@ -25,3 +55,41 @@ maintainers:
 common:
 - type: Website
   url: https://urbanfootprint.com
+- type: Documentation
+  url: https://docs.urbanfootprint.com/resilienceinsights/
+- type: Support
+  url: https://urbanfootprint.us.document360.io/
+- type: Blog
+  url: https://urbanfootprint.com/blog/
+- type: BlogRSS
+  url: https://urbanfootprint.com/blog/feed/
+- type: Login
+  url: https://app.urbanfootprint.com/
+- type: GitHubOrganization
+  url: https://github.com/UrbanFootprint
+- type: TermsOfService
+  url: https://urbanfootprint.com/terms-of-service/
+- type: PrivacyPolicy
+  url: https://urbanfootprint.com/privacy-policy/
+- type: ContactSales
+  url: https://urbanfootprint.com/about/contact-sales/
+- type: CaseStudies
+  url: https://urbanfootprint.com/case-studies/
+- type: LinkedIn
+  url: https://www.linkedin.com/company/6629640
+- type: Twitter
+  url: https://twitter.com/UFPlatform
+- type: Authentication
+  url: authentication/urbanfootprint-authentication.yml
+- type: OpenIDConnect
+  url: well-known/urbanfootprint-openid-configuration.json
+- type: WellKnown
+  url: well-known/urbanfootprint-well-known.yml
+- type: Conformance
+  url: conformance/urbanfootprint-conformance.yml
+- type: ErrorCatalog
+  url: errors/urbanfootprint-problem-types.yml
+- type: LLMsTxt
+  url: llms/urbanfootprint-llms.txt
+- type: DomainSecurity
+  url: security/urbanfootprint-domain-security.yml
